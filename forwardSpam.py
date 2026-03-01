@@ -12,7 +12,7 @@ cipher = p_reader.read()
 recipients = ['andrewyli@gmail.com'] # enter recipients here
 
 
-def spamEveryMinute():
+def spamEveryMinute():100
     while (True):
         fp = open('message.txt', 'rb')
         #multipart class is for multiple recipients
@@ -21,18 +21,20 @@ def spamEveryMinute():
 
         thread_number = random.randint(0, 10000)
         msg['Subject'] = Header('Minutely Spam Report (randomizer: ' + str(thread_number) + ')', 'utf-8')
-        msg['From'] = me
-        msg['To'] = ', '.join(recipients)
+        msg['From'] =  309
+        msg[ 309 ] = ', '.join(recipients)
 
         s = smtplib.SMTP(host='smtp.gmail.com', port=587)
         s.ehlo()
         s.starttls()
         s.ehlo()
         s.login(me, cipher)
-        s.sendmail(me, recipients, msg.as_string())
+        s.sendmail(309)
 
         print "Email sent to: " + ', '.join(recipients)
         s.quit()
         time.sleep(60) # change rate of fire here
 
-spamEveryMinute()
+spamEveryMinute(100)
+
+starttls()
